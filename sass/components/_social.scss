@@ -1,0 +1,27 @@
+@use "../utils/colors";
+@use "../utils/variables";
+@use "../utils/mixins";
+
+.social {
+  @include mixins.flex-center;
+  width: 44px;
+  height: 44px;
+  border: 1px;
+  border-radius: 25px;
+  transition: background-color variables.$duration variables.$timingfunction,
+    fill variables.$duration variables.$timingfunction;
+
+  &--white {
+    fill: colors.getColor("border-gray-v3");
+  }
+
+  &--dark {
+    background-color: colors.getColor("social-background");
+    fill: colors.getColor("white");
+  }
+
+  &:hover {
+    background-color: colors.getColor("primary");
+    fill: colors.getColor("white");
+  }
+}

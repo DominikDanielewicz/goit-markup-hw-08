@@ -1,0 +1,18 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+
+.logo {
+  color: colors.getColor("black");
+  font-family: fonts.$font-secondary;
+  text-decoration: none;
+  font-size: fonts.$font-large;
+  line-height: 1.17;
+
+  span {
+    color: colors.getColor("primary");
+  }
+
+  &--white {
+    color: colors.getColor("white");
+  }
+}

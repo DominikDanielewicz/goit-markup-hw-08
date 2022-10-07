@@ -1,0 +1,78 @@
+@use "../utils/colors";
+@use "../utils/variables";
+@use "../utils/fonts";
+
+.team {
+  background-color: colors.getColor("soft-gray");
+
+  &__list {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__card {
+    background: colors.getColor("white");
+    box-shadow: variables.$material-shadow-v1;
+    border-radius: 0px 0px 4px 4px;
+    width: 100%;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__description {
+    padding: 30px 24px;
+  }
+
+  &__heading {
+    font-weight: fonts.$font-medium-bold;
+    font-size: fonts.$font-medium;
+    line-height: 1.18;
+    text-align: center;
+  }
+
+  &__text {
+    font-size: fonts.$font-medium;
+    line-height: 19px;
+    text-align: center;
+    color: colors.getColor("light-gray");
+    margin-bottom: 16px;
+    margin-top: 10px;
+  }
+
+  &__social-list {
+    gap: 10px;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .team {
+    &__card {
+      width: 450px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .team {
+    &__list {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__card {
+      width: 354px;
+      align-items: stretch;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .team {
+    &__card {
+      width: 270px;
+    }
+  }
+}

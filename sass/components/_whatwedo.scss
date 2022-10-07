@@ -1,0 +1,40 @@
+@use "../utils/colors";
+@use "../utils/mixins";
+@use "../utils/fonts";
+
+.whatwedo {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .whatwedo {
+    display: block;
+    background-color: colors.getColor("white");
+    padding-top: 0;
+
+    &__list {
+      justify-content: space-between;
+    }
+
+    &__item {
+      position: relative;
+    }
+
+    &__label {
+      @include mixins.flex-center;
+      background-color: colors.getColor("dark-gray-tp");
+      width: 100%;
+      height: 70px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    &__heading {
+      font-weight: fonts.$font-bold;
+      font-size: fonts.$font-normal;
+      line-height: 1.17;
+      text-transform: uppercase;
+      color: colors.getColor("white");
+    }
+  }
+}

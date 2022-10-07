@@ -1,0 +1,129 @@
+@use "../utils/colors";
+@use "../utils/fonts";
+@use "../utils/variables";
+
+.footer {
+  background-color: colors.getColor("medium-gray");
+  padding: 60px 0;
+
+  & .container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    text-align: center;
+  }
+
+  &__social-list {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  &__join-us {
+    color: colors.getColor("white");
+    font-weight: fonts.$font-bold;
+    line-height: 1.17;
+    font-size: fonts.$font-normal;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 20px;
+    margin-top: 12px;
+  }
+
+  &__address {
+    font-size: fonts.$font-normal;
+    font-style: normal;
+    line-height: 1.71;
+    color: colors.getColor("white");
+    margin-top: 20px;
+  }
+
+  &__contact-list {
+    margin-top: 9px;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  &__contact-link {
+    font-size: fonts.$font-normal;
+    font-style: normal;
+    line-height: 1.71;
+    color: colors.getColor("light-gray-tp");
+    transition: color variables.$duration variables.$timingfunction;
+
+    &:hover,
+    &:focus {
+      color: colors.getColor("primary");
+    }
+  }
+
+  &__signup {
+    color: colors.getColor("white");
+    font-weight: fonts.$font-bold;
+    line-height: 1.17;
+    font-size: fonts.$font-normal;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 12px;
+  }
+
+  &__input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid colors.getColor("soft-gray-tp");
+    border-radius: 4px;
+    color: colors.getColor("light-gray-tp");
+    font-size: fonts.$font-medium;
+    letter-spacing: 0.03em;
+    line-height: 1.25;
+    background-color: colors.getColor("tp");
+    padding-left: 15px;
+    margin-bottom: 20px;
+
+    &::placeholder {
+      color: colors.getColor("light-gray-tp");
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    & .container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 60px;
+      text-align: center;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__button {
+      margin: 0 auto;
+    }
+
+    &__input {
+      width: 450px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer {
+    & .container {
+      text-align: left;
+    }
+
+    &__form {
+      flex-direction: row;
+    }
+
+    &__input {
+      width: 358px;
+      margin-right: 12px;
+    }
+  }
+}

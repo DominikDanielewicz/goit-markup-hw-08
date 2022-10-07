@@ -1,0 +1,45 @@
+@use "../utils/colors";
+@use "../utils/variables";
+@use "../utils/fonts";
+
+.filter {
+  padding-bottom: 50px;
+
+  &__list {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    font-family: fonts.$font-primary;
+    color: colors.getColor("black");
+    font-weight: fonts.$font-medium-bold;
+    font-size: fonts.$font-medium;
+    line-height: 1.62;
+    text-align: center;
+    background-color: colors.getColor("soft-gray");
+    border-radius: 4px;
+    border-width: 0;
+    padding: 6px 22px;
+    letter-spacing: 0.03em;
+    transition: background-color variables.$duration variables.$timingfunction,
+      box-shadow variables.$duration variables.$timingfunction,
+      color variables.$duration variables.$timingfunction;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: colors.getColor("primary");
+      box-shadow: variables.$shadow-middle;
+      color: colors.getColor("white");
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .filter {
+    &__list {
+      justify-content: center;
+    }
+  }
+}

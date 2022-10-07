@@ -1,0 +1,198 @@
+@use "../utils/colors";
+@use "../utils/variables";
+@use "../utils/mixins";
+@use "../utils/fonts";
+
+.modal {
+  @include mixins.flex-center;
+  position: relative;
+  width: 100%;
+  background-color: colors.getColor("white");
+  border-radius: 4px;
+  box-shadow: variables.$modal-shadow;
+  padding: 20px;
+  flex-direction: column;
+
+  &__close-button {
+    @include mixins.flex-center;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    border: 1px solid #0000001a;
+    background-color: colors.getColor("white");
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  &__form {
+    width: 100%;
+  }
+
+  &__heading {
+    font-size: fonts.$font-big;
+    margin-bottom: 12px;
+    letter-spacing: 0.03em;
+    line-height: 1.17;
+    font-weight: fonts.$font-bold;
+    text-align: center;
+  }
+
+  &__label {
+    font-size: fonts.$font-small;
+    letter-spacing: 0.01em;
+    line-height: 1.17;
+    color: colors.getColor("light-gray");
+    position: relative;
+    fill: colors.getColor("dark-gray");
+
+    &:focus-within {
+      fill: colors.getColor("primary");
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 46%;
+    left: 15px;
+    transform: translateY(-50%);
+  }
+
+  &__textfield {
+    width: 100%;
+    height: 40px;
+    border: 1px solid colors.getColor("strong-gray-tp");
+    border-radius: 4px;
+    color: colors.getColor("dark-gray");
+    font-size: fonts.$font-small;
+    letter-spacing: 0.03em;
+    line-height: 1.25;
+    background-color: colors.getColor("tp");
+    padding-left: 42px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+
+    &:focus-within {
+      border: 1px solid colors.getColor("primary");
+      outline: none;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid colors.getColor("strong-gray-tp");
+    color: colors.getColor("dark-gray");
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    font-size: fonts.$font-small;
+
+    &:focus-within {
+      border: 1px solid colors.getColor("primary");
+      outline: none;
+    }
+
+    &::placeholder {
+      color: colors.getColor("medium-gray-tp");
+      font-size: fonts.$font-small;
+    }
+  }
+
+  &__checkbox-label {
+    @include mixins.flex-center;
+    position: relative;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+    color: colors.getColor("light-gray");
+    font-size: fonts.$font-small;
+    cursor: pointer;
+  }
+
+  &__checkbox-icon {
+    min-width: 16px;
+    min-height: 15px;
+    border: 2px solid colors.getColor("dark-gray");
+    border-radius: 2px;
+    fill: colors.getColor("white");
+    margin-right: 8px;
+    transition: background-color variables.$duration variables.$timingfunction,
+      border-color variables.$duration variables.$timingfunction;
+  }
+
+  &__checkbox {
+    position: absolute;
+
+    &:checked + .modal__checkbox-icon {
+      background-color: colors.getColor("primary");
+      border: 2px solid colors.getColor("primary");
+    }
+
+    &:focus + .modal__checkbox-icon {
+      border: 2px solid colors.getColor("primary");
+    }
+
+    &:disabled + .modal__checkbox-icon {
+      background-color: colors.getColor("light-gray");
+    }
+
+    &:checked:disabled + .modal__checkbox-icon {
+      background-color: colors.getColor("primary");
+      opacity: 0.5;
+    }
+  }
+
+  &__link {
+    color: colors.getColor("primary");
+  }
+
+  &__button {
+    margin: 0 auto;
+    display: block;
+    margin-top: 30px;
+  }
+}
+
+.backdrop {
+  @include mixins.flex-center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: colors.getColor("backdrop");
+  transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
+  opacity: 1;
+  visibility: visible;
+  padding: 15px;
+}
+
+.hidden {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 480px) {
+  .modal {
+    width: 450px;
+    padding: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal {
+    width: 528px;
+
+    &__checkbox-label {
+      font-size: fonts.$font-normal;
+    }
+  }
+}

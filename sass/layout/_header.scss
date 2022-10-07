@@ -1,0 +1,77 @@
+@use "../utils/variables";
+@use "../utils/colors";
+@use "../utils/fonts";
+
+.header {
+  background-color: colors.getColor("white");
+  border: 1px solid colors.getColor("border-gray-v2");
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__contact-list {
+    display: none;
+  }
+
+  &__menu-button {
+    cursor: pointer;
+    padding-top: 5px;
+
+    &:hover {
+      fill: colors.getColor("primary");
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    .container {
+      gap: 83px;
+    }
+
+    &__contact-list {
+      font-size: fonts.$font-normal;
+      font-weight: fonts.$font-medium-bold;
+      line-height: 1.14;
+      letter-spacing: 0.02em;
+      gap: 10px;
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__contact-link {
+      display: flex;
+      gap: 10px;
+      color: colors.getColor("light-gray");
+      fill: colors.getColor("light-gray");
+      transition: color variables.$duration variables.$timingfunction,
+        fill variables.$duration variables.$timingfunction;
+
+      &:hover {
+        color: colors.getColor("primary");
+        fill: colors.getColor("primary");
+      }
+    }
+
+    &__menu-button {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    .container {
+      gap: 93px;
+    }
+
+    &__contact-list {
+      gap: 50px;
+      flex-direction: row;
+    }
+  }
+}
