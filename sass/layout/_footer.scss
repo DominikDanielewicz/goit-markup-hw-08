@@ -8,6 +8,7 @@
 
   & .container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     gap: 60px;
     text-align: center;
@@ -90,15 +91,20 @@
   .footer {
     & .container {
       flex-direction: row;
-      flex-wrap: wrap;
       justify-content: space-around;
       gap: 60px;
       text-align: center;
     }
 
+    &__right {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+
     &__form {
       display: flex;
       flex-direction: column;
+      justify-content: center;
     }
 
     &__button {
@@ -107,6 +113,8 @@
 
     &__input {
       width: 450px;
+      margin: 0 auto;
+      margin-bottom: 20px;
     }
   }
 }
@@ -115,6 +123,7 @@
   .footer {
     & .container {
       text-align: left;
+      flex-wrap: nowrap;
     }
 
     &__form {
@@ -124,6 +133,11 @@
     &__input {
       width: 358px;
       margin-right: 12px;
+    }
+
+    &__right {
+      flex-basis: auto;
+      max-width: auto;
     }
   }
 }

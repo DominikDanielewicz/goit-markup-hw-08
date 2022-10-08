@@ -29,8 +29,7 @@
 
   &__list {
     gap: 30px;
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
   }
 
   &__text {
@@ -38,6 +37,24 @@
     line-height: 1.71;
     color: colors.getColor("light-gray");
     margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .strengths {
+    &__item {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .strengths {
+    &__item {
+      flex-basis: calc((100% - 30px) / 2);
+      max-width: calc((100% - 30px) / 2);
+    }
   }
 }
 
@@ -49,6 +66,7 @@
 
     &__list {
       flex-direction: row;
+      flex-wrap: nowrap;
     }
   }
 }
